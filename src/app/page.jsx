@@ -21,6 +21,7 @@ import {
 function MainComponent() {
   const [activeSection, setActiveSection] = React.useState("home");
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [selectedImage, setSelectedImage] = React.useState(null);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -306,11 +307,14 @@ function MainComponent() {
                 key={index}
                 className="gaming-card bg-gray-900/50 border border-yellow-400/30 rounded-lg overflow-hidden hover:border-yellow-400/60 transition-all duration-300"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
+                <div className="overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover cursor-pointer transition-transform duration-300 hover:scale-110"
+                    onClick={() => setSelectedImage(project.image)}
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-gray-400 text-sm mb-2">
@@ -434,6 +438,34 @@ function MainComponent() {
         </footer>
       </div>
 
+      {/* Image Modal Popup */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex justify-center items-center p-4 modal-fade-in"
+          onClick={() => setSelectedImage(null)}
+          aria-modal="true"
+          role="dialog"
+        >
+          <div
+            className="relative max-w-4xl max-h-[90vh] bg-black border-2 border-yellow-400/50 rounded-lg shadow-lg shadow-yellow-400/20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage}
+              alt="Project Showcase"
+              className="rounded-lg object-contain max-w-full max-h-[85vh]"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-4 -right-4 bg-yellow-400 text-black rounded-full p-2 hover:bg-yellow-300 transition-all duration-300 shadow-lg"
+              aria-label="Close image viewer"
+            >
+              <X size={24} />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Styles */}
       <style jsx global>{`
         @keyframes neonGlow {
@@ -465,6 +497,15 @@ function MainComponent() {
             opacity: 1; 
             transform: translateY(0); 
           }
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        .modal-fade-in {
+          animation: fadeIn 0.3s ease-out;
         }
 
         .neon-glow {

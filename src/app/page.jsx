@@ -53,10 +53,10 @@ function MainComponent() {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen font-mono relative">
-      {/* Subtle background effect */}
-      <div className="fixed inset-0 opacity-10 pointer-events-none">
-        <div className="grid-bg"></div>
+    <div className="bg-black text-white min-h-screen font-mono relative isolate">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0 -z-10 h-full w-full bg-transparent bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:3rem_3rem]">
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_50%_200px,#facc152b,transparent)]" />
       </div>
 
       {/* Navigation */}
@@ -134,33 +134,44 @@ function MainComponent() {
         {/* Header */}
         <header
           id="home"
-          className="text-center mb-16 min-h-screen flex flex-col justify-center"
+          className="text-center mb-16 min-h-screen flex flex-col justify-center relative"
         >
-          <div className="w-32 h-32 mx-auto mb-6 bg-gray-800 rounded-full border-2 border-yellow-400 overflow-hidden">
-            <img
-              src="/images/vyxlogo.png"
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 rounded-lg"
+            style={{
+              backgroundImage: "url('/images/vyxlogo.png')"
+            }}
+          ></div>
+          
+          {/* Content overlay */}
+          <div className="relative z-10">
+            <div className="w-32 h-32 mx-auto mb-6 bg-gray-800 rounded-full border-2 border-yellow-400 overflow-hidden">
+              <img
+                src="/images/vyxlogo.png"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-400 neon-glow">
-            VYXLEZ
-          </h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-400 neon-glow">
+              VYXLEZ
+            </h1>
 
-          <div className="terminal-line text-green-400 text-lg mb-6">
-            {">"} Roblox Game Builder
+            <div className="terminal-line text-green-400 text-lg mb-6">
+              {">"} Roblox Game Builder
+            </div>
+            <div className="text-gray-400 mb-8">
+              Creating immersive experiences in the Roblox metaverse
+            </div>
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="mx-auto bg-yellow-400 text-black px-6 py-3 font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 border-2 border-yellow-400 hover:border-yellow-300 flex items-center gap-2"
+            >
+              <Play size={18} />
+              <span>VIEW PROJECTS</span>
+            </button>
           </div>
-          <div className="text-gray-400 mb-8">
-            Creating immersive experiences in the Roblox metaverse
-          </div>
-          <button
-            onClick={() => scrollToSection("projects")}
-            className="mx-auto bg-yellow-400 text-black px-6 py-3 font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 border-2 border-yellow-400 hover:border-yellow-300 flex items-center gap-2"
-          >
-            <Play size={18} />
-            <span>VIEW PROJECTS</span>
-          </button>
         </header>
 
         {/* About Section */}
@@ -434,11 +445,6 @@ function MainComponent() {
           }
         }
         
-        @keyframes animated-grid {
-          0% { background-position: 0 0; }
-          100% { background-position: 50px 50px; }
-        }
-
         @keyframes slideDown {
           from { 
             opacity: 0; 
@@ -475,6 +481,8 @@ function MainComponent() {
 
         .terminal-line {
           font-family: 'Courier New', monospace;
+          white-space: nowrap;
+          overflow: hidden;
           border-right: 2px solid #22c55e;
           animation: blink-caret 1s step-end infinite;
         }
@@ -491,16 +499,6 @@ function MainComponent() {
 
         .gaming-card:hover {
           box-shadow: 0 0 20px rgba(250, 204, 21, 0.1);
-        }
-
-        .grid-bg {
-          background-image: 
-            linear-gradient(rgba(250, 204, 21, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(250, 204, 21, 0.1) 1px, transparent 1px);
-          background-size: 50px 50px;
-          width: 100%;
-          height: 100%;
-          animation: animated-grid 4s linear infinite;
         }
 
         .mobile-menu {

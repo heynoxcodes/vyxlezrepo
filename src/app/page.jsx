@@ -1,5 +1,22 @@
 "use client";
 import React from "react";
+import {
+  Home,
+  User,
+  Gamepad2,
+  Handshake,
+  Mail,
+  Menu,
+  X,
+  Play,
+  MessageCircle,
+  ClipboardList,
+  Code,
+  CheckCircle2,
+  Star,
+  Check,
+  Send
+} from "lucide-react";
 
 function MainComponent() {
   const [activeSection, setActiveSection] = React.useState("home");
@@ -7,7 +24,7 @@ function MainComponent() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "projects", "commission", "contact"];
+      const sections = ["home", "about", "projects", "payments", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -47,20 +64,21 @@ function MainComponent() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div
-              className="text-2xl font-bold text-yellow-400 cursor-pointer neon-text"
+              className="text-2xl font-bold text-yellow-400 cursor-pointer neon-text flex items-center gap-2"
               onClick={() => scrollToSection("home")}
             >
-              <i className="fas fa-gamepad mr-2"></i>VYXLEZ
+              <Gamepad2 size={28} />
+              <span>VYXLEZ</span>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {[
-                { id: "home", label: "Home", icon: "fa-home" },
-                { id: "about", label: "About", icon: "fa-user" },
-                { id: "projects", label: "Projects", icon: "fa-gamepad" },
-                { id: "commission", label: "Commission", icon: "fa-handshake" },
-                { id: "contact", label: "Contact", icon: "fa-envelope" },
+                { id: "home", label: "Home", icon: <Home size={16} /> },
+                { id: "about", label: "About", icon: <User size={16} /> },
+                { id: "projects", label: "Projects", icon: <Gamepad2 size={16} /> },
+                { id: "payments", label: "Payments", icon: <Handshake size={16} /> },
+                { id: "contact", label: "Contact", icon: <Mail size={16} /> },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -71,7 +89,7 @@ function MainComponent() {
                       : "text-white"
                   }`}
                 >
-                  <i className={`fas ${item.icon} text-sm`}></i>
+                  {item.icon}
                   <span>{item.label}</span>
                 </button>
               ))}
@@ -82,9 +100,7 @@ function MainComponent() {
               className="md:hidden text-yellow-400 neon-text"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <i
-                className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"} text-xl`}
-              ></i>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
@@ -92,11 +108,11 @@ function MainComponent() {
           {isMenuOpen && (
             <div className="md:hidden bg-black/95 border-t-2 border-yellow-400 mobile-menu">
               {[
-                { id: "home", label: "Home", icon: "fa-home" },
-                { id: "about", label: "About", icon: "fa-user" },
-                { id: "projects", label: "Projects", icon: "fa-gamepad" },
-                { id: "commission", label: "Commission", icon: "fa-handshake" },
-                { id: "contact", label: "Contact", icon: "fa-envelope" },
+                { id: "home", label: "Home", icon: <Home size={18}/> },
+                { id: "about", label: "About", icon: <User size={18}/> },
+                { id: "projects", label: "Projects", icon: <Gamepad2 size={18}/> },
+                { id: "payments", label: "Payments", icon: <Handshake size={18}/> },
+                { id: "contact", label: "Contact", icon: <Mail size={18}/> },
               ].map((item, index) => (
                 <button
                   key={item.id}
@@ -104,7 +120,7 @@ function MainComponent() {
                   className="flex items-center space-x-3 w-full text-left px-4 py-3 hover:text-yellow-400 hover:neon-text transition-all duration-300 border-l-4 border-transparent hover:border-yellow-400 hover:bg-yellow-400/10 mobile-menu-item"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <i className={`fas ${item.icon}`}></i>
+                  {item.icon}
                   <span>{item.label}</span>
                 </button>
               ))}
@@ -121,16 +137,16 @@ function MainComponent() {
           className="text-center mb-16 min-h-screen flex flex-col justify-center"
         >
           <div className="w-32 h-32 mx-auto mb-6 bg-gray-800 rounded-full border-2 border-yellow-400 overflow-hidden">
-  <img
-    src="/images/vyxlogo.png"
-    alt="Profile"
-    className="w-full h-full object-cover"
-  />
-</div>
+            <img
+              src="/images/vyxlogo.png"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-                 <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-400 neon-glow">
-                  VYXLEZ
-                  </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-400 neon-glow">
+            VYXLEZ
+          </h1>
 
           <div className="terminal-line text-green-400 text-lg mb-6">
             {">"} Roblox Game Builder
@@ -140,9 +156,10 @@ function MainComponent() {
           </div>
           <button
             onClick={() => scrollToSection("projects")}
-            className="mx-auto bg-yellow-400 text-black px-6 py-3 font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 border-2 border-yellow-400 hover:border-yellow-300"
+            className="mx-auto bg-yellow-400 text-black px-6 py-3 font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 border-2 border-yellow-400 hover:border-yellow-300 flex items-center gap-2"
           >
-            <i className="fas fa-play mr-2"></i>VIEW PROJECTS
+            <Play size={18} />
+            <span>VIEW PROJECTS</span>
           </button>
         </header>
 
@@ -151,8 +168,9 @@ function MainComponent() {
           id="about"
           className="mb-16 min-h-screen flex flex-col justify-center"
         >
-          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text">
-            <i className="fas fa-user mr-2"></i>ABOUT ME
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text flex items-center gap-2">
+            <User size={24} />
+            <span>ABOUT ME</span>
           </h2>
           <div className="gaming-card bg-gray-900/50 p-6 border border-yellow-400/30 rounded-lg">
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -202,13 +220,14 @@ function MainComponent() {
 
         {/* Projects Section */}
         <section id="projects" className="mb-16">
-          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text">
-            <i className="fas fa-gamepad mr-2"></i>PROJECTS
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text flex items-center gap-2">
+            <Gamepad2 size={24} />
+            <span>PROJECTS</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: "Forest Showecase",
+                title: "Forest Showcase",
                 tech: "Building",
                 description:
                   "Build to showcase skills",
@@ -295,89 +314,54 @@ function MainComponent() {
           </div>
         </section>
 
-        {/* Commission Process Section */}
-        <section id="commission" className="mb-16">
-          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text">
-            <i className="fas fa-handshake mr-2"></i>COMMISSION PROCESS
+        {/* Payments Section */}
+        <section id="payments" className="mb-16">
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text flex items-center gap-2">
+            <Handshake size={24}/>
+            <span>PAYMENTS & COMMISSION</span>
           </h2>
           <div className="gaming-card bg-gray-900/50 p-6 border border-yellow-400/30 rounded-lg">
-            <p className="text-gray-300 mb-6 text-center">
-              Here's how working with Vyxlez works - simple, transparent, and
-              professional!
+            <p className="text-gray-300 mb-8 text-center">
+              Flexible payment plans are available. Prices are listed in Robux and are negotiable based on project scope.
             </p>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
               {[
-                {
-                  step: "01",
-                  title: "Initial Contact",
-                  description:
-                    "Reach out via Discord or Email with your project idea and requirements.",
-                  icon: "fa-comments",
-                },
-                {
-                  step: "02",
-                  title: "Project Discussion",
-                  description:
-                    "We discuss details, timeline, budget, and create a clear project scope.",
-                  icon: "fa-clipboard-list",
-                },
-                {
-                  step: "03",
-                  title: "Development",
-                  description:
-                    "I start building your project with regular updates and progress reports.",
-                  icon: "fa-code",
-                },
-                {
-                  step: "04",
-                  title: "Delivery",
-                  description:
-                    "Final testing, revisions if needed, and delivery of your completed project.",
-                  icon: "fa-check-circle",
-                },
-              ].map((process, index) => (
-                <div
-                  key={index}
-                  className="text-center p-4 bg-black/30 rounded border border-yellow-400/20 hover:border-yellow-400/50 transition-all duration-300"
-                >
-                  <div className="text-yellow-400 text-2xl font-bold mb-2">
-                    {process.step}
-                  </div>
-                  <i
-                    className={`fas ${process.icon} text-yellow-400 text-xl mb-3 neon-text`}
-                  ></i>
-                  <h3 className="text-white font-bold mb-2">{process.title}</h3>
-                  <p className="text-gray-400 text-sm">{process.description}</p>
+                  { tier: "Basic Asset", price: "10K+", features: ["Small Props", "Single Room Build", "Basic Models"], color: "border-gray-500" },
+                  { tier: "Standard Map", price: "50K+", features: ["Medium-Sized Map", "Detailed Assets", "Advanced Lighting"], color: "border-yellow-400", popular: true },
+                  { tier: "Premium Experience", price: "150K+", features: ["Large Scale Map", "Full Game Assets", "Interactive Elements"], color: "border-green-400" }
+              ].map((plan) => (
+                <div key={plan.tier} className={`relative text-center p-6 bg-black/30 rounded-lg border-2 ${plan.color} transition-all duration-300 hover:shadow-xl hover:shadow-yellow-400/10 hover:-translate-y-2`}>
+                  {plan.popular && <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full uppercase">Popular</div>}
+                  <h3 className="text-white font-bold text-xl mb-2">{plan.tier}</h3>
+                  <p className="text-yellow-400 text-3xl font-bold mb-4">{plan.price}</p>
+                  <ul className="space-y-2 text-gray-400 mb-6">
+                    {plan.features.map(f => <li key={f} className="flex items-center justify-center gap-2"><Check size={16} className="text-green-400"/><span>{f}</span></li>)}
+                  </ul>
+                  <button onClick={() => scrollToSection("contact")} className="w-full bg-yellow-400 text-black px-4 py-2 font-bold hover:bg-yellow-300 transition-all duration-300">
+                    Get Started
+                  </button>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 p-4 bg-yellow-400/10 border border-yellow-400/30 rounded-lg">
-              <h3 className="text-yellow-400 font-bold mb-2 text-center">
-                <i className="fas fa-star mr-2"></i>What I Offer
+            <div className="mt-8 p-6 bg-yellow-400/10 border border-yellow-400/30 rounded-lg">
+              <h3 className="text-yellow-400 font-bold mb-4 text-center text-lg flex items-center justify-center gap-2">
+                <Star size={20} className="neon-text" />
+                <span>My Commitment</span>
               </h3>
-              <div className="grid md:grid-cols-2 gap-4 text-sm">
-                <div className="text-gray-300">
-                  <i className="fas fa-check text-green-400 mr-2"></i>Custom
-                  game development
-                </div>
-                <div className="text-gray-300">
-                  <i className="fas fa-check text-green-400 mr-2"></i>3D
-                  modeling & textures
-                </div>
-                <div className="text-gray-300">
-                  <i className="fas fa-check text-green-400 mr-2"></i>Advanced lighting
-                </div>
-                <div className="text-gray-300">
-                  <i className="fas fa-check text-green-400 mr-2"></i>Map designing
-                </div>
-                <div className="text-gray-300">
-                  <i className="fas fa-check text-green-400 mr-2"></i>Atmosphere fixing
-                </div>
-                <div className="text-gray-300">
-                  <i className="fas fa-check text-green-400 mr-2"></i>Environmental editor
-                </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-center">
+                  {[
+                    { title: "Contact", icon: <MessageCircle size={24} className="mx-auto mb-2 text-yellow-400" />, desc: "Clear communication"},
+                    { title: "Planning", icon: <ClipboardList size={24} className="mx-auto mb-2 text-yellow-400" />, desc: "Detailed project scope"},
+                    { title: "Development", icon: <Code size={24} className="mx-auto mb-2 text-yellow-400" />, desc: "Regular progress updates"},
+                    { title: "Delivery", icon: <CheckCircle2 size={24} className="mx-auto mb-2 text-yellow-400" />, desc: "Quality-tested final product"},
+                  ].map(item => (
+                    <div key={item.title}>
+                        {item.icon}
+                        <p className="text-gray-200">{item.desc}</p>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
@@ -385,8 +369,9 @@ function MainComponent() {
 
         {/* Contact Section */}
         <section id="contact" className="mb-16">
-          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text">
-            <i className="fas fa-envelope mr-2"></i>CONTACT
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6 neon-text flex items-center gap-2">
+            <Mail size={24} />
+            <span>CONTACT</span>
           </h2>
           <div className="gaming-card bg-gray-900/50 p-6 border border-yellow-400/30 rounded-lg">
             <p className="text-gray-300 mb-6 text-center">
@@ -397,28 +382,26 @@ function MainComponent() {
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
-                  icon: "fa-solid fa-envelope",
+                  icon: <Mail size={28} />,
                   label: "Email",
                   value: "vyxlez@gmail.com",
                   color: "text-red-400",
                 },
                 {
-                  icon: "fab fa-discord",
+                  icon: <Send size={28} />,
                   label: "Discord",
                   value: "vyxlez",
                   color: "text-purple-400",
                 },
                 {
-                  icon: "fas fa-gamepad",
+                  icon: <Gamepad2 size={28} />,
                   label: "Roblox",
                   value: "aVyxlez",
                   color: "text-green-400",
                 },
               ].map((contact, index) => (
-                <div key={index} className="text-center">
-                  <i
-                    className={`${contact.icon} ${contact.color} text-3xl mb-2 neon-text`}
-                  ></i>
+                <div key={index} className="text-center p-4 bg-black/30 rounded border border-yellow-400/20">
+                  <div className={`inline-block mb-2 ${contact.color}`}>{contact.icon}</div>
                   <div className="text-sm text-gray-400 mb-1">
                     {contact.label}
                   </div>
@@ -449,6 +432,11 @@ function MainComponent() {
           50% { 
             text-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #facc15;
           }
+        }
+        
+        @keyframes animated-grid {
+          0% { background-position: 0 0; }
+          100% { background-position: 50px 50px; }
         }
 
         @keyframes slideDown {
@@ -512,6 +500,7 @@ function MainComponent() {
           background-size: 50px 50px;
           width: 100%;
           height: 100%;
+          animation: animated-grid 4s linear infinite;
         }
 
         .mobile-menu {

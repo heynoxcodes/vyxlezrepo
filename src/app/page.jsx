@@ -15,7 +15,10 @@ import {
   CheckCircle2,
   Star,
   Check,
-  Send
+  Send,
+  TrendingUp,
+  Award,
+  Archive
 } from "lucide-react";
 
 function MainComponent() {
@@ -51,6 +54,38 @@ function MainComponent() {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
+  };
+
+  const AnimatedCounter = ({ to, suffix, label, icon }) => {
+    const [count, setCount] = React.useState(0);
+
+    React.useEffect(() => {
+      const duration = 2000; // Animate over 2 seconds
+      const step = to / (duration / 16); // Calculate increment per frame (for ~60fps)
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= to) {
+          setCount(to);
+          clearInterval(timer);
+        } else {
+          setCount(Math.ceil(current));
+        }
+      }, 16);
+
+      return () => clearInterval(timer);
+    }, [to]);
+
+    return (
+      <div className="text-center">
+        {icon}
+        <div className="text-4xl font-bold text-yellow-400 neon-text mt-2">
+          {count}{suffix}
+        </div>
+        <p className="text-gray-400 mt-1 text-sm uppercase tracking-widest">{label}</p>
+      </div>
+    );
   };
 
   return (
@@ -185,13 +220,35 @@ function MainComponent() {
             <span>ABOUT ME</span>
           </h2>
           <div className="gaming-card bg-gray-900/50 p-6 border border-yellow-400/30 rounded-lg">
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-8 leading-relaxed text-center">
               I'm a passionate Roblox developer specializing in creating
               engaging games and experiences. With years of experience in
               building, modeling, and scripting, I bring creative visions to
               life in the Roblox platform. I love crafting unique gameplay
               mechanics and stunning visual environments.
             </p>
+
+            {/* Stats Counter */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8 py-6 border-y-2 border-yellow-400/20">
+               <AnimatedCounter 
+                  to={400} 
+                  suffix="M+" 
+                  label="Total Visits" 
+                  icon={<TrendingUp size={32} className="mx-auto text-yellow-400"/>} 
+              />
+              <AnimatedCounter 
+                  to={100} 
+                  suffix="+" 
+                  label="Commissions" 
+                  icon={<Award size={32} className="mx-auto text-yellow-400"/>} 
+              />
+              <AnimatedCounter 
+                  to={150} 
+                  suffix="+" 
+                  label="Assets Created" 
+                  icon={<Archive size={32} className="mx-auto text-yellow-400"/>} 
+              />
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -346,14 +403,14 @@ function MainComponent() {
                   { tier: "Standard Map", price: "50K+", features: ["Medium-Sized Map", "Detailed Assets", "Advanced Lighting"], color: "border-yellow-400", popular: true },
                   { tier: "Premium Experience", price: "150K+", features: ["Large Scale Map", "Full Game Assets", "Interactive Elements"], color: "border-green-400" }
               ].map((plan) => (
-                <div key={plan.tier} className={`relative text-center p-6 bg-black/30 rounded-lg border-2 ${plan.color} transition-all duration-300 hover:shadow-xl hover:shadow-yellow-400/10 hover:-translate-y-2`}>
+                <div key={plan.tier} className={`relative text-center p-6 bg-black/30 rounded-lg border-2 ${plan.color} transition-all duration-300 hover:shadow-xl hover:shadow-yellow-400/10 hover:-translate-y-2 flex flex-col h-full`}>
                   {plan.popular && <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full uppercase">Popular</div>}
                   <h3 className="text-white font-bold text-xl mb-2">{plan.tier}</h3>
                   <p className="text-yellow-400 text-3xl font-bold mb-4">{plan.price}</p>
-                  <ul className="space-y-2 text-gray-400 mb-6">
+                  <ul className="space-y-2 text-gray-400 mb-6 flex-grow">
                     {plan.features.map(f => <li key={f} className="flex items-center justify-center gap-2"><Check size={16} className="text-green-400"/><span>{f}</span></li>)}
                   </ul>
-                  <button onClick={() => scrollToSection("contact")} className="w-full bg-yellow-400 text-black px-4 py-2 font-bold hover:bg-yellow-300 transition-all duration-300">
+                  <button onClick={() => scrollToSection("contact")} className="w-full bg-yellow-400 text-black px-4 py-2 font-bold hover:bg-yellow-300 transition-all duration-300 mt-auto">
                     Get Started
                   </button>
                 </div>
@@ -372,7 +429,7 @@ function MainComponent() {
                     { title: "Development", icon: <Code size={24} className="mx-auto mb-2 text-yellow-400" />, desc: "Regular progress updates"},
                     { title: "Delivery", icon: <CheckCircle2 size={24} className="mx-auto mb-2 text-yellow-400" />, desc: "Quality-tested final product"},
                   ].map(item => (
-                    <div key={item.title}>
+                    <div>
                         {item.icon}
                         <p className="text-gray-200">{item.desc}</p>
                     </div>

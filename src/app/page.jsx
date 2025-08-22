@@ -309,7 +309,7 @@ function MainComponent() {
                 description:
                   "Step inside a warm and modern café built with detail and atmosphere. A relaxing showcase of interior design, lighting, and cozy vibes.",
                 image:
-                  "/images/club.png",
+                  "/images/club.PNG",
               },
               {
                 title: "Haunted House",

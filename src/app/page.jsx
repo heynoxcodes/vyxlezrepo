@@ -299,7 +299,7 @@ function MainComponent() {
                 title: "Forest Showcase",
                 tech: "Building",
                 description:
-                  "Build to showcase skills",
+                  "A dark and unsettling forest showcase built in Roblox Studio. Fog drifts between the trees, shadows linger in the silence, and every corner hides a sense of mystery",
                 image:
                   "/images/scary.png",
               },

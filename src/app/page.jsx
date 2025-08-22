@@ -304,10 +304,10 @@ function MainComponent() {
                   "/images/scary.png",
               },
               {
-                title: "Social Hangout Club",
+                title: "The Artisan Cafe",
                 tech: "Building, Modeling, Physics",
                 description:
-                  "Club made in 2h to test skills",
+                  "Step inside a warm and modern café built with detail and atmosphere. A relaxing showcase of interior design, lighting, and cozy vibes.",
                 image:
                   "/images/club.png",
               },
@@ -339,7 +339,7 @@ function MainComponent() {
                 title: "Death Penalty",
                 tech: "Advanced Building and Modeling",
                 description:
-                  "Game map for Death Penalty",
+                  "Game map based on Death Penalty",
                 image:
                   "/images/roulette.png",
               },

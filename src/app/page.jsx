@@ -344,12 +344,12 @@ function MainComponent() {
                   "/images/roulette.png",
               },
               {
-                title: "Snowy Mountain",
+                title: "Studded Style Map",
                 tech: "Building",
                 description:
-                  "Realistic game map for a snowy moutain based off of a real life location",
+                  "A custom-built map designed in the classic studded style, featuring clean geometry and nostalgic Roblox aesthetics. Crafted for my game, this build emphasizes simplicity, charm, and smooth playability while staying true to the original Roblox feel",
                 image:
-                  "/images/snow.png",
+                  "/images/RobloxScreenShot20250829_175345634.png",
               },
               {
                 title: "Castles Island",

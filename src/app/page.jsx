@@ -315,7 +315,7 @@ function MainComponent() {
                 title: "Haunted House",
                 tech: "Building",
                 description:
-                  "Haunted house with an eerie environment",
+                  "A dark, atmospheric haunted house environment designed with detailed interiors, custom props, and eerie lighting. Built to create an immersive horror experience that emphasizes mood, tension, and exploration.",
                 image:
                   "/images/horror.png",
               },
@@ -323,7 +323,7 @@ function MainComponent() {
                 title: "Dead Sands",
                 tech: "Advanced Building",
                 description:
-                  "Map made for popular game Dead Sands, similar to Dead Rails, which peaked at over 10k CCU",
+                  "Expansive desert-themed map created for the popular Roblox game “Dead Sands,” inspired by Dead Rails. Features abandoned structures, wide open roads, and desolate landscapes, contributing to immersive gameplay and supporting peak concurrency of over 20k players.",
                 image:
                   "/images/road.png",
               },
@@ -331,7 +331,7 @@ function MainComponent() {
                 title: "Go Kart Game Lobby",
                 tech: "Building",
                 description:
-                  "Build for a go kart game, similar to RIVALS",
+                  "Stylized lobby environment designed for a Go Kart racing game, featuring vibrant displays and interactive showcase areas. Inspired by RIVALS.",
                 image:
                   "/images/room.png",
               },
@@ -339,7 +339,7 @@ function MainComponent() {
                 title: "Death Penalty",
                 tech: "Advanced Building and Modeling",
                 description:
-                  "Game map based on Death Penalty",
+                  "Dark, industrial-themed map developed for the  game similar to “Death Penalty.” Built with advanced structural detailing and environmental storytelling.",
                 image:
                   "/images/roulette.png",
               },
@@ -355,7 +355,7 @@ function MainComponent() {
                 title: "Castles Island",
                 tech: "Advanced Building",
                 description:
-                  "Massive floating castle islands made for YouTuber PPyth0n",
+                  "Massive floating islands featuring intricately designed castles, bridges, and natural terrain. Built as a large-scale fantasy environment for YouTuber PPyth0n, blending architectural detail with expansive world design",
                 image:
                   "/images/castles.png",
               },

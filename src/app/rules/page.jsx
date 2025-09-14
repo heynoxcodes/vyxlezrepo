@@ -1,72 +1,89 @@
-// pages/rules.js
-
-import Head from 'next/head';
+// src/app/rules/page.jsx
+import Link from "next/link";
 
 export default function Rules() {
   return (
-    <>
-      <Head>
-        <title>Vyxlez Rules</title>
-        <meta name="description" content="Community guidelines for Vyxlez" />
-      </Head>
+    <div className="min-h-screen bg-black text-gray-200 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-500">
+      <div className="max-w-4xl mx-auto bg-gray-900 bg-opacity-80 p-10 rounded-3xl shadow-2xl">
+        {/* Back home link */}
+        <Link href="/">
+          <a className="text-yellow-400 hover:text-yellow-200 font-medium mb-6 inline-block transition-colors duration-300">&larr; Back Home</a>
+        </Link>
 
-      <div className="bg-gray-100 text-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-          <h1 className="text-4xl font-extrabold text-center text-yellow-600 mb-6">Vyxlez Community Rules</h1>
-          <p className="text-lg text-center text-gray-600 mb-12">Please read and adhere to the following guidelines to ensure a positive experience for everyone.</p>
+        {/* Title */}
+        <h1 className="text-5xl font-extrabold text-center text-yellow-400 mb-6 drop-shadow-lg">
+          Vyxlez Community Rules
+        </h1>
+        <p className="text-center text-gray-400 mb-12 text-lg">
+          Read carefully and follow these rules to keep Vyxlez safe, fun, and respectful for everyone. Breaking these rules may result in penalties.
+        </p>
 
-          <div className="space-y-8">
-            <section>
-              <h2 className="text-2xl font-semibold text-yellow-500">1. Respect All Members</h2>
-              <p className="text-lg text-gray-700">
-                Treat all players and staff with kindness and respect. Harassment, hate speech, or any form of discrimination will not be tolerated.
-              </p>
-            </section>
+        {/* Rules sections */}
+        <div className="space-y-8">
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">1. Respect All Members</h2>
+            <p>
+              Treat everyone with kindness and courtesy. Harassment, hate speech, personal attacks, or discrimination are strictly prohibited. Respect moderators, players, and staff alike.
+            </p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-yellow-500">2. No Cheating or Exploiting</h2>
-              <p className="text-lg text-gray-700">
-                Using third-party tools, exploits, or any form of cheating is strictly prohibited. Play fair and encourage others to do the same.
-              </p>
-            </section>
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">2. No Cheating, Exploits, or Hacks</h2>
+            <p>
+              Using unauthorized software, exploiting bugs, or cheating in any way is forbidden. Fair play is essential to maintain a healthy community. Repeat offenders will be banned.
+            </p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-yellow-500">3. Follow Platform Terms of Service</h2>
-              <p className="text-lg text-gray-700">
-                Adhere to the terms and conditions of both Roblox and Discord. Violations can result in penalties on both platforms.
-              </p>
-            </section>
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">3. Follow Roblox & Discord Rules</h2>
+            <p>
+              Always follow the terms of service for both Roblox and Discord. Violating platform rules may result in actions both here and on the platform itself.
+            </p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-yellow-500">4. Keep Communication Appropriate</h2>
-              <p className="text-lg text-gray-700">
-                Avoid spamming, trolling, or using offensive language in chats. Maintain a friendly and welcoming environment.
-              </p>
-            </section>
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">4. Appropriate Communication</h2>
+            <p>
+              Keep chats clean and friendly. Avoid spam, offensive language, trolling, or disruptive behavior. Positive communication makes the community enjoyable for everyone.
+            </p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-yellow-500">5. Listen to Moderators</h2>
-              <p className="text-lg text-gray-700">
-                Moderators are here to help maintain order. Follow their instructions and report any issues through the proper channels.
-              </p>
-            </section>
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">5. Follow Moderators’ Instructions</h2>
+            <p>
+              Moderators maintain order and safety. Listen to their instructions and do not argue unnecessarily. If you have concerns, report them calmly via the proper channels.
+            </p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-yellow-500">6. Report Issues Responsibly</h2>
-              <p className="text-lg text-gray-700">
-                If you encounter problems or witness rule-breaking, report it through the official support channels. Do not take matters into your own hands.
-              </p>
-            </section>
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">6. Responsible Reporting</h2>
+            <p>
+              If you see rule-breaking, report it through official channels. Do not try to handle conflicts yourself or escalate situations aggressively.
+            </p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-yellow-500">7. Have Fun!</h2>
-              <p className="text-lg text-gray-700">
-                Enjoy your time in Vyxlez! Engage with the community, participate in events, and make the most of your experience.
-              </p>
-            </section>
-          </div>
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">7. Keep Content Safe & Legal</h2>
+            <p>
+              Do not share inappropriate content, NSFW materials, or anything illegal. All shared content must be safe for the community.
+            </p>
+          </section>
+
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">8. Participate Positively</h2>
+            <p>
+              Join events, interact respectfully with the community, and contribute to a friendly environment. Your actions help make Vyxlez an enjoyable space.
+            </p>
+          </section>
+
+          <section className="hover:scale-[1.01] transition-transform duration-300">
+            <h2 className="text-2xl font-bold text-yellow-300 mb-2">9. Consequences of Breaking Rules</h2>
+            <p>
+              Violations may result in warnings, temporary bans, or permanent removal from the community depending on severity. Repeat or severe offenses will be treated strictly.
+            </p>
+          </section>
         </div>
       </div>
-    </>
+    </div>
   );
 }

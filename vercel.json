@@ -1,6 +1,6 @@
 {
   "redirects": [
-    { "source": "/discord", "destination": "https://discord.gg/vyxlez", "permanent": true }
+    { "source": "/discord", "destination": "https://discord.gg/vyxlez", "permanent": true },
     { "source": "/play", "destination": "https://www.roblox.com/games/106975496168147/unnamed", "permanent": true }
   ]
 }

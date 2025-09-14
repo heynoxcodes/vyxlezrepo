@@ -15,7 +15,7 @@ export default function Rules() {
           Vyxlez Community Rules
         </h1>
         <p className="text-center text-gray-400 mb-12 text-lg">
-          Read carefully and follow these rules to keep Vyxlez safe, fun, and respectful for everyone. Breaking these rules may result in penalties.
+          Read carefully and follow these rules to keep Vyxlez Games safe, fun, and respectful for everyone. Breaking these rules may result in penalties.
         </p>
 
         {/* Rules sections */}

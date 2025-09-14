@@ -12,7 +12,7 @@ export default function Rules() {
 
         {/* Title */}
         <h1 className="text-5xl font-extrabold text-center text-yellow-400 mb-6 drop-shadow-lg">
-          Vyxlez Community Rules
+          Vyxlez Games Community Rules
         </h1>
         <p className="text-center text-gray-400 mb-12 text-lg">
           Read carefully and follow these rules to keep Vyxlez Games safe, fun, and respectful for everyone. Breaking these rules may result in penalties.
